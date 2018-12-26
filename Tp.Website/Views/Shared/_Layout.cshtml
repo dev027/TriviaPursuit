@@ -25,14 +25,14 @@
 </head>
 <body>
 <div class="wrapper">
-@Html.Partial("_TopNavBar")
-@Html.Partial("_Sidebar")
-@Html.Partial("_OffSidebar")
+@Html.Partial(MVC.Shared.Views._TopNavBar)
+@Html.Partial(MVC.Shared.Views._Sidebar)
+@Html.Partial(MVC.Shared.Views._OffSidebar)
 <!-- Main section-->
     <section class="section-container">
         @RenderBody()
     </section>
-    @Html.Partial("_Footer")
+    @Html.Partial(MVC.Shared.Views._Footer)
 </div>
 <!-- =============== VENDOR SCRIPTS ===============-->
 <!-- MODERNIZR-->
