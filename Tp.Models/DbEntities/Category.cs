@@ -26,16 +26,32 @@ namespace Tp.Models.DbEntities
 
         #region Properties
 
-        public string Name;
+        public string Name { get; set; }
 
-        public CheeseColour CheeseColour;
+        public CheeseColour CheeseColour { get; set; }
 
         #endregion Properties
 
         #region Child Properties
 
         public IList<PlayerCategory> PlayerCategories { get; set; }
+        public IList<Question> Questions { get; set; }
 
         #endregion Child Properties
+
+        public enum Include
+        {
+            None = 0,
+            PlayerCategories = 1 << 0,
+            Questions = 1 << 1
+        }
+
+        public enum OrderBy
+        {
+            None,
+            Id,
+            Name,
+            CheeseColour
+        }
     }
 }

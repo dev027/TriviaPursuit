@@ -133,6 +133,14 @@
     <Compile Include="Migrations\20181226001737_Init.designer.cs">
       <DependentUpon>20181226001737_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20181227163746_Init1.cs" />
+    <Compile Include="Migrations\20181227163746_Init1.designer.cs">
+      <DependentUpon>20181227163746_Init1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20181227164814_AddIsCatchAllAnswerToAnswers.cs" />
+    <Compile Include="Migrations\20181227164814_AddIsCatchAllAnswerToAnswers.designer.cs">
+      <DependentUpon>20181227164814_AddIsCatchAllAnswerToAnswers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MigrationContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -10,14 +10,14 @@
             "MORE": "More"
         },
         "nav": {
-            "SEVENTY_CLUB": "70% Club",
+            "CATEGORIES": "Categories",
             "DASHBOARD": "Dashboard",
             "WIDGETS": "Widgets",
             "DOCUMENTATION": "Documentation",
             "element": {
                 "ELEMENTS": "Elements",
                 "BUTTON": "Button",
-                "COLOR": "Colors",
+                "COLOR": "Colours",
                 "NOTIFICATION": "Notification",
                 "CAROUSEL": "Carousel",
                 "SPINNER": "Spinner",

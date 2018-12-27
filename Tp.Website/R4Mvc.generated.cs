@@ -18,6 +18,7 @@ using R4Mvc;
 public static partial class MVC
 {
     public static readonly Tp.Website.Controllers.HomeController Home = new Tp.Website.Controllers.R4MVC_HomeController();
+    public static readonly Tp.Website.Controllers.QuestionBankController QuestionBank = new Tp.Website.Controllers.R4MVC_QuestionBankController();
     public static readonly R4Mvc.SharedController Shared = new R4Mvc.SharedController();
 }
 

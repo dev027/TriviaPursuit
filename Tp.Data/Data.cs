@@ -1,5 +1,6 @@
 ﻿using System;
 using Tp.Data.DbContexts;
+using Tp.Data.DbEntities.Categories;
 using Tp.Data.DbEntities.Questions;
 
 namespace Tp.Data
@@ -31,7 +32,9 @@ namespace Tp.Data
         }
 
         private QuestionDb _question;
+        private CategoryDb _category;
 
         public QuestionDb Question => _question ?? (_question = new QuestionDb(Context));
+        public CategoryDb Category => _category ?? (_category = new CategoryDb(Context));
     }
 }

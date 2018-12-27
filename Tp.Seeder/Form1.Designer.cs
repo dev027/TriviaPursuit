@@ -28,13 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnSeedCategories = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnSeedCategories
+            // 
+            this.btnSeedCategories.Location = new System.Drawing.Point(13, 13);
+            this.btnSeedCategories.Name = "btnSeedCategories";
+            this.btnSeedCategories.Size = new System.Drawing.Size(144, 23);
+            this.btnSeedCategories.TabIndex = 0;
+            this.btnSeedCategories.Text = "Seed Categories";
+            this.btnSeedCategories.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSeedCategories);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnSeedCategories;
     }
 }
 

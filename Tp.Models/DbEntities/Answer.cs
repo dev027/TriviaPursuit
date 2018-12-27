@@ -13,12 +13,14 @@ namespace Tp.Models.DbEntities
             string text,
             int questionId,
             bool isCorrect,
+            bool isCatchAllAnswer,
             int id = 0)
             :base(id: id)
         {
             Text = text;
             QuestionId = questionId;
             IsCorrect = isCorrect;
+            IsCatchAllAnswer = isCatchAllAnswer;
         }
 
         #endregion
@@ -30,6 +32,8 @@ namespace Tp.Models.DbEntities
         public int QuestionId { get; set; }
 
         public bool IsCorrect { get; set; }
+
+        public bool IsCatchAllAnswer { get; set; }
 
         #endregion
 
