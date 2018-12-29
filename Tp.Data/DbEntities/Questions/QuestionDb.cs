@@ -93,5 +93,11 @@ namespace Tp.Data.DbEntities.Questions
         }
 
         #endregion Include / OrderBy
+
+        public void Add(Question question)
+        {
+            Context.Questions.Add(question);
+            Context.SaveChanges();
+        }
     }
 }

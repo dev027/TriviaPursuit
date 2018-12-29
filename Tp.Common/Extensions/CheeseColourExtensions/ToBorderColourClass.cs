@@ -4,9 +4,9 @@ namespace Tp.Common.Extensions.CheeseColourExtensions
 {
     public static partial class CheeseColourExtensions
     {
-        public static string ToBorderColourClass(this CheeseColour cheeseColour)
+        public static string ToBackgroundColourClass(this CheeseColour cheeseColour)
         {
-            return $"border-{cheeseColour.ToColourClass()}";
+            return $"bg-{cheeseColour.ToColourClass()}";
         }
     }
 }

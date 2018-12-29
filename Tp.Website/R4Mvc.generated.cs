@@ -44,6 +44,7 @@ namespace R4Mvc
             public class _ViewNamesClass
             {
                 public readonly string Error = "Error";
+                public readonly string _ContentHeader = "_ContentHeader";
                 public readonly string _CookieConsentPartial = "_CookieConsentPartial";
                 public readonly string _Footer = "_Footer";
                 public readonly string _Layout = "_Layout";
@@ -54,6 +55,7 @@ namespace R4Mvc
             }
 
             public readonly string Error = "~/Views/Shared/Error.cshtml";
+            public readonly string _ContentHeader = "~/Views/Shared/_ContentHeader.cshtml";
             public readonly string _CookieConsentPartial = "~/Views/Shared/_CookieConsentPartial.cshtml";
             public readonly string _Footer = "~/Views/Shared/_Footer.cshtml";
             public readonly string _Layout = "~/Views/Shared/_Layout.cshtml";
@@ -154,6 +156,14 @@ public static partial class Links
         public const string UrlPath = "~/js";
         public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
         public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
+        public static partial class QuestionBank
+        {
+            public const string UrlPath = "~/js/QuestionBank";
+            public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
+            public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
+            public static readonly string question_bank__index_js = Url("question_bank__index.js");
+        }
+
         public static readonly string app_js = Url("app.js");
         public static readonly string site_js = Url("site.js");
         public static readonly string site_min_js = Url("site.min.js");

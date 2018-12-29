@@ -1,17 +1,19 @@
 ﻿using Tp.Common.Extensions.CheeseColourExtensions;
 using Tp.Domain;
 
-namespace Tp.Website.Models.Category
+namespace Tp.Website.Models.QuestionBank
 {
     public class QuestionBankSummaryViewModel
     {
         public QuestionBankSummaryViewModel(
+            int categoryId,
             string categoryName,
             int questionCount,
             string iconImage,
             string backgroundColourClass,
             string backgroundDarkColourClass)
         {
+            CategoryId = categoryId;
             CategoryName = categoryName;
             QuestionCount = questionCount;
             IconImage = iconImage;
@@ -19,6 +21,7 @@ namespace Tp.Website.Models.Category
             BackgroundDarkColourClass = backgroundDarkColourClass;
         }
 
+        public int CategoryId { get; }
         public string CategoryName { get; }
         public int QuestionCount { get; }
         public string IconImage { get; }
@@ -28,11 +31,12 @@ namespace Tp.Website.Models.Category
         public static QuestionBankSummaryViewModel Create(QuestionBankSummary questionBankSummary)
         {
             return new QuestionBankSummaryViewModel(
+                categoryId:questionBankSummary.CategoryId,
                 categoryName: questionBankSummary.CategoryName,
                 questionCount: questionBankSummary.QuestionCount,
                 iconImage: questionBankSummary.CheeseColour.ToIconClass(),
                 backgroundColourClass: questionBankSummary.CheeseColour.ToBackgroundColourClass(),
-                backgroundDarkColourClass: questionBankSummary.CheeseColour.ToDarkBackgroundColourClass());
+                backgroundDarkColourClass: questionBankSummary.CheeseColour.ToBackgroundDarkColourClass());
         }
     }
 }

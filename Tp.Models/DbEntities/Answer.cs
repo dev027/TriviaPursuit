@@ -23,6 +23,16 @@ namespace Tp.Models.DbEntities
             IsCatchAllAnswer = isCatchAllAnswer;
         }
 
+        public Answer(
+            string text,
+            bool isCorrect,
+            bool isCatchAllAnswer)
+        {
+            Text = text;
+            IsCorrect = isCorrect;
+            IsCatchAllAnswer = isCatchAllAnswer;
+        }
+
         #endregion
 
         #region Properties

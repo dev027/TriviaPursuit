@@ -49,6 +49,13 @@ namespace Tp.Website.Controllers
             return RedirectToActionPermanent(taskResult.Result);
         }
 
+        [NonAction]
+        [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
+        public virtual IActionResult Add()
+        {
+            return new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Add);
+        }
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public QuestionBankController Actions => MVC.QuestionBank;
         [GeneratedCode("R4Mvc", "1.0")]
@@ -65,12 +72,14 @@ namespace Tp.Website.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
+            public readonly string Add = "Add";
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
             public const string Index = "Index";
+            public const string Add = "Add";
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
@@ -80,10 +89,12 @@ namespace Tp.Website.Controllers
             public _ViewNamesClass ViewNames => s_ViewNames;
             public class _ViewNamesClass
             {
+                public readonly string Add = "Add";
                 public readonly string Index = "Index";
                 public readonly string _QuestionBankSummary = "_QuestionBankSummary";
             }
 
+            public readonly string Add = "~/Views/QuestionBank/Add.cshtml";
             public readonly string Index = "~/Views/QuestionBank/Index.cshtml";
             public readonly string _QuestionBankSummary = "~/Views/QuestionBank/_QuestionBankSummary.cshtml";
         }
@@ -108,6 +119,17 @@ namespace Tp.Website.Controllers
         {
             var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Index);
             IndexOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void AddOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, int categoryId);
+        [NonAction]
+        public override Microsoft.AspNetCore.Mvc.IActionResult Add(int categoryId)
+        {
+            var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Add);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "categoryId", categoryId);
+            AddOverride(callInfo, categoryId);
             return callInfo;
         }
     }

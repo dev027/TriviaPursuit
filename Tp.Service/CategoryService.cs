@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Tp.Common.Constants;
 using Tp.Domain;
 using Tp.Models.DbEntities;
@@ -39,20 +40,21 @@ namespace Tp.Service
             {
                 var categories = data.Category.GetAll();
 
-                IList< QuestionBankSummary > questionBankSummaries = new List<QuestionBankSummary>();
+                return categories.Select(c => new QuestionBankSummary(
+                        categoryId: c.Id,
+                        categoryName: c.Name,
+                        cheeseColour: c.CheeseColour,
+                        questionCount: 0))
+                    .ToList();
+            }
+        }
 
-                foreach (var category in categories)
-                {
-                    var questionBankSummary = new QuestionBankSummary(
-                        categoryName: category.Name,
-                        cheeseColour: category.CheeseColour,
-                        questionCount: 0);
-
-                    questionBankSummaries.Add(questionBankSummary);
-
-                }
-
-                return questionBankSummaries;
+        public Category GetById(int categoryId,
+            Category.Include include = Category.Include.None)
+        {
+            using (var data = new Data.Data())
+            {
+                return data.Category.GetById(categoryId, include);
             }
         }
     }

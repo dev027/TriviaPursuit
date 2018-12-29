@@ -35,3 +35,41 @@ body {
         display: none;
     }
 }
+
+.border-pink {
+    border-color: #f532e5
+}
+.border-yellow {
+    border-color:#fad732
+}
+
+.icon-offset {
+    padding-right: 5px;
+}
+
+.action-button-group__container {
+    position: relative;
+}
+
+.action-button-group--position-bottom-right {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.action-button-group__button--is-deleting,
+.action-button-group__button--is-editing,
+.action-button-group__button--is-saving {
+    display: none;
+}
+
+.action-button-group--is-deleting .action-button-group__button,
+.action-button-group--is-saving .action-button-group__button {
+    display: none;
+}
+
+.action-button-group--is-deleting .action-button-group__button--is-deleting,
+.action-button-group--is-deleting .action-button-group__button--is-editing,
+.action-button-group--is-saving .action-button-group__button--is-saving {
+    display: inline;
+}

@@ -1,21 +1,24 @@
-﻿using System;
-using Tp.Common.Constants;
+﻿using Tp.Common.Constants;
 
 namespace Tp.Domain
 {
     public class QuestionBankSummary
     {
         public QuestionBankSummary(
+            int categoryId,
             string categoryName,
             CheeseColour cheeseColour,
             int questionCount)
         {
+            CategoryId = categoryId;
             CategoryName = categoryName;
             CheeseColour = cheeseColour;
             QuestionCount = questionCount;
         }
-        public string CategoryName { get; set; }
-        public CheeseColour CheeseColour { get; set; }
-        public int QuestionCount { get; set; }
+
+        public int CategoryId { get; }
+        public string CategoryName { get; }
+        public CheeseColour CheeseColour { get; }
+        public int QuestionCount { get; }
     }
 }

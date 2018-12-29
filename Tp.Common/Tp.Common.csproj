@@ -42,10 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Constants\BootstrapContext.cs" />
     <Compile Include="Constants\CheeseColour.cs" />
+    <Compile Include="Constants\FontAwesomeIcon.cs" />
+    <Compile Include="Constants\FontAwesomeIconActionButton.cs" />
+    <Compile Include="Extensions\CheeseColourExtensions\ToBorderColourClass.cs" />
+    <Compile Include="Extensions\CheeseColourExtensions\ToColourClass.cs" />
     <Compile Include="Extensions\CheeseColourExtensions\ToIconClass.cs" />
     <Compile Include="Extensions\CheeseColourExtensions\ToBackgroundDarkColourClass.cs" />
     <Compile Include="Extensions\CheeseColourExtensions\ToBackgroundColourClass.cs" />
+    <Compile Include="Extensions\IListExtensions\AddRange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
