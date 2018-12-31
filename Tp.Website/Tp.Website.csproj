@@ -9,18 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="css\app-rtl.css" />
-    <None Remove="css\app.css" />
-    <None Remove="css\bootstrap-rtl.css" />
-    <None Remove="css\bootstrap.css" />
-    <None Remove="css\theme-a.css" />
-    <None Remove="css\theme-b.css" />
-    <None Remove="css\theme-c.css" />
-    <None Remove="css\theme-d.css" />
-    <None Remove="css\theme-e.css" />
-    <None Remove="css\theme-f.css" />
-    <None Remove="css\theme-g.css" />
-    <None Remove="css\theme-h.css" />
     <None Remove="wwwroot\img\bg1.jpg" />
     <None Remove="wwwroot\img\bg10.jpg" />
     <None Remove="wwwroot\img\bg2.jpg" />
@@ -51,7 +39,6 @@
     <None Remove="wwwroot\img\user\11.jpg" />
     <None Remove="wwwroot\img\user\12.jpg" />
     <None Remove="wwwroot\img\user\13.jpg" />
-    <None Remove="js\app.js" />
     <None Remove="wwwroot\server\documentation\readme.md" />
     <None Remove="wwwroot\vendor\@ttskch\select2-bootstrap4-theme\dist\select2-bootstrap4.css" />
     <None Remove="wwwroot\vendor\animate.css\animate.css" />
@@ -214,11 +201,6 @@
     <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="css\" />
-      <Folder Include="js\" />
-    </ItemGroup>
 
     <ItemGroup>
       <None Include="bundleconfig.json" />

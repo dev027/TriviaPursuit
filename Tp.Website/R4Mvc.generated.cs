@@ -48,6 +48,7 @@ namespace R4Mvc
                 public readonly string _CookieConsentPartial = "_CookieConsentPartial";
                 public readonly string _Footer = "_Footer";
                 public readonly string _Layout = "_Layout";
+                public readonly string _ModalOne = "_ModalOne";
                 public readonly string _OffSidebar = "_OffSidebar";
                 public readonly string _Sidebar = "_Sidebar";
                 public readonly string _TopNavBar = "_TopNavBar";
@@ -59,6 +60,7 @@ namespace R4Mvc
             public readonly string _CookieConsentPartial = "~/Views/Shared/_CookieConsentPartial.cshtml";
             public readonly string _Footer = "~/Views/Shared/_Footer.cshtml";
             public readonly string _Layout = "~/Views/Shared/_Layout.cshtml";
+            public readonly string _ModalOne = "~/Views/Shared/_ModalOne.cshtml";
             public readonly string _OffSidebar = "~/Views/Shared/_OffSidebar.cshtml";
             public readonly string _Sidebar = "~/Views/Shared/_Sidebar.cshtml";
             public readonly string _TopNavBar = "~/Views/Shared/_TopNavBar.cshtml";
@@ -161,7 +163,16 @@ public static partial class Links
             public const string UrlPath = "~/js/QuestionBank";
             public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
             public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
+            public static readonly string question_bank__add_js = Url("question_bank__add.js");
             public static readonly string question_bank__index_js = Url("question_bank__index.js");
+        }
+
+        public static partial class Shared
+        {
+            public const string UrlPath = "~/js/Shared";
+            public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
+            public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
+            public static readonly string Utils_js = Url("Utils.js");
         }
 
         public static readonly string app_js = Url("app.js");
@@ -1887,6 +1898,15 @@ public static partial class Links
                 public static readonly string sweetalert_css = Url("sweetalert.css");
                 public static readonly string sweetalert_min_js = Url("sweetalert.min.js");
             }
+        }
+
+        public static partial class toastr
+        {
+            public const string UrlPath = "~/vendor/toastr";
+            public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
+            public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
+            public static readonly string toastr_css = Url("toastr.css");
+            public static readonly string toastr_js = Url("toastr.js");
         }
 
         public static partial class weather_icons

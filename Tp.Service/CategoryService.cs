@@ -44,7 +44,7 @@ namespace Tp.Service
                         categoryId: c.Id,
                         categoryName: c.Name,
                         cheeseColour: c.CheeseColour,
-                        questionCount: 0))
+                        questionCount: data.Question.GetCountByCategoryId(c.Id)))
                     .ToList();
             }
         }

@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Tp.Website.Models.QuestionBank;
@@ -30,7 +29,7 @@ namespace Tp.Website.Controllers
         }
 
         [HttpPost]
-        public virtual IActionResult Add(AddQuestionPostModel model)
+        public virtual IActionResult Add(AddQuestionPostModel inModel)
         {
             if (!ModelState.IsValid)
             {
@@ -38,15 +37,18 @@ namespace Tp.Website.Controllers
             }
 
             Service.Question.Create(
-                model.CategoryId,
-                model.Question,
-                model.CorrectAnswer,
-                model.WrongAnswer1,
-                model.WrongAnswer2,
-                model.WrongAnswer3,
-                model.AllNone);
+                inModel.CategoryId,
+                inModel.Question,
+                inModel.CorrectAnswer,
+                inModel.WrongAnswer1,
+                inModel.WrongAnswer2,
+                inModel.WrongAnswer3,
+                inModel.AllNone);
 
-            throw new NotImplementedException();
+            var category = Service.Category.GetById(inModel.CategoryId);
+
+            var outModel = AddQuestionViewModel.Create(category, inModel);
+            return PartialView(MVC.QuestionBank.Views._AddQuestion, outModel);
         }
 
         public class AddQuestionPostModel

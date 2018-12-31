@@ -99,5 +99,10 @@ namespace Tp.Data.DbEntities.Questions
             Context.Questions.Add(question);
             Context.SaveChanges();
         }
+
+        public int GetCountByCategoryId(int categoryId)
+        {
+            return Context.Questions.Count(q => q.CategoryId == categoryId);
+        }
     }
 }

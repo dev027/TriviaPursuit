@@ -1,0 +1,158 @@
+﻿@using Microsoft.AspNetCore.Html
+@using Tp.Website.Helpers
+@model Tp.Website.Models.QuestionBank.AddQuestionViewModel
+
+@functions
+{
+
+    IHtmlContent TextBox(string name, string value, bool canEdit)
+    {
+        var tbInput = new TagBuilder("input");
+        tbInput.AddCssClass("form-control");
+        tbInput.MergeAttribute("name", name);
+
+        if (!canEdit)
+        {
+            tbInput.MergeAttribute("disabled", "disabled");
+            tbInput.MergeAttribute("value", value);
+        }
+        return tbInput;
+    }
+
+    IHtmlContent AllNoneButton(string radioId, int allNone, int index, bool canEdit)
+    {
+        var tbButton = new TagBuilder("button");
+        tbButton.AddCssClass("btn");
+        tbButton.AddCssClass(index == allNone ? "btn-primary" : "btn-outline-secondary");
+        tbButton.MergeAttribute("data-radio-id", radioId);
+        tbButton.MergeAttribute("type", "button");
+        tbButton.InnerHtml.AppendHtml("None/All");
+        tbButton.MergeAttribute("tabindex","-1");
+        if (!canEdit)
+        {
+            tbButton.MergeAttribute("disabled", "disabled");
+        }
+        return tbButton;
+    }
+
+    IHtmlContent TextArea(string name, string value, bool canEdit)
+    {
+        var tbTextArea = new TagBuilder("textarea");
+        tbTextArea.AddCssClass("form-control");
+        tbTextArea.MergeAttribute("rows", "3");
+        tbTextArea.MergeAttribute("name", name);
+        tbTextArea.MergeAttribute("autofocus", "autofocus");
+        if (!canEdit)
+        {
+            tbTextArea.MergeAttribute("disabled", "disabled");
+            tbTextArea.InnerHtml.Append(value);
+        }
+        return tbTextArea;
+    }
+
+}
+
+<div class="card mb-3 @Model.BorderColourClass" id="js-question">
+    <div class="card-header text-white @Model.BackgroundColourClass">
+        <em class="@Model.IconClass"></em> @Model.CategoryName
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+            <div class="form-group">
+                <label>Question</label>
+                @TextArea("Question", Model.Question, Model.CanEdit)
+                <div class="invalid-feedback" data-val-msg-for="Question"></div>
+            </div>
+            <div class="form-group">
+                <label>Correct Answer</label>
+                <div class="input-group">
+                    @TextBox("CorrectAnswer", Model.CorrectAnswer, Model.CanEdit)
+                    <div class="input-group-append">
+                        @AllNoneButton("js-all-none-correct", Model.AllNone, 1, Model.CanEdit)
+                    </div>
+                    <div class="invalid-feedback" data-val-msg-for="CorrectAnswer"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>1st Wrong Answer</label>
+                <div class="input-group">
+                    @TextBox("WrongAnswer1", Model.WrongAnswer1, Model.CanEdit)
+                    <div class="input-group-append">
+                        @AllNoneButton("js-all-none-wrong1", Model.AllNone, 2, Model.CanEdit)
+                    </div>
+                    <div class="invalid-feedback" data-val-msg-for="WrongAnswer1"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>2nd Wrong Answer</label>
+                <div class="input-group">
+                    @TextBox("WrongAnswer2", Model.WrongAnswer2, Model.CanEdit)
+                    <div class="input-group-append">
+                        @AllNoneButton("js-all-none-wrong2", Model.AllNone, 3, Model.CanEdit)
+                    </div>
+                    <div class="invalid-feedback" data-val-msg-for="WrongAnswer2"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>3rd Wrong Answer</label>
+                <div class="input-group">
+                    @TextBox("WrongAnswer3", Model.WrongAnswer3, Model.CanEdit)
+                    <div class="input-group-append">
+                        @AllNoneButton("js-all-none-wrong3", Model.AllNone, 4, Model.CanEdit)
+                    </div>
+                </div>
+                <div class="invalid-feedback" data-val-msg-for="WrongAnswer3"></div>
+            </div>
+            <div class="form-group d-none">
+                <label>All or None Style Answer</label>
+                <div class="c-radio">
+                    <label>
+                        <input type="radio" name="allNone" value="0" id="js-all-none-none" checked />
+                        <span class="fa fa-circle"></span>
+                        None
+                    </label>
+                </div>
+                <div class="c-radio">
+                    <label>
+                        <input type="radio" name="allNone" value="1" id="js-all-none-correct" />
+                        <span class="fa fa-circle"></span>
+                        Correct Answer
+                    </label>
+                </div>
+                <div class="c-radio">
+                    <label>
+                        <input type="radio" name="allNone" value="2" id="js-all-none-wrong1" />
+                        <span class="fa fa-circle"></span>
+                        1st Wrong Answer
+                    </label>
+                </div>
+                <div class="c-radio">
+                    <label>
+                        <input type="radio" name="allNone" value="3" id="js-all-none-wrong2" />
+                        <span class="fa fa-circle"></span>
+                        2nd Wrong Answer
+                    </label>
+                </div>
+                <div class="c-radio">
+                    <label>
+                        <input type="radio" name="allNone" value="4" id="js-all-none-wrong3" />
+                        <span class="fa fa-circle"></span>
+                        3rd Wrong Answer
+                    </label>
+                </div>
+            </div>
+            @if (Model.CanEdit)
+            {
+                @Html.ActionButtonGroupAddCancel(idSuffix: "question", addButtonText: "Question")
+            }
+            else
+            {
+                <a class="btn btn-primary" href="@Url.Action(MVC.QuestionBank.Add(Model.CategoryId))">
+                    <em class="@Model.IconClass"></em> Add Another @Model.CategoryName Question
+                </a>
+                <a class ="btn btn-outline-secondary"href="@Url.Action(MVC.QuestionBank.Index())">Question Bank</a>
+            }
+        </form>
+    </div>
+</div>

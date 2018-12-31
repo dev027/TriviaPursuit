@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Html;
 using Tp.Common.Constants;
 using Tp.Common.Extensions.IListExtensions;

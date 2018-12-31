@@ -91,11 +91,13 @@ namespace Tp.Website.Controllers
             {
                 public readonly string Add = "Add";
                 public readonly string Index = "Index";
+                public readonly string _AddQuestion = "_AddQuestion";
                 public readonly string _QuestionBankSummary = "_QuestionBankSummary";
             }
 
             public readonly string Add = "~/Views/QuestionBank/Add.cshtml";
             public readonly string Index = "~/Views/QuestionBank/Index.cshtml";
+            public readonly string _AddQuestion = "~/Views/QuestionBank/_AddQuestion.cshtml";
             public readonly string _QuestionBankSummary = "~/Views/QuestionBank/_QuestionBankSummary.cshtml";
         }
 
@@ -130,6 +132,17 @@ namespace Tp.Website.Controllers
             var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Add);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "categoryId", categoryId);
             AddOverride(callInfo, categoryId);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void AddOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, Tp.Website.Controllers.QuestionBankController.AddQuestionPostModel model);
+        [NonAction]
+        public override Microsoft.AspNetCore.Mvc.IActionResult Add(Tp.Website.Controllers.QuestionBankController.AddQuestionPostModel model)
+        {
+            var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Add);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            AddOverride(callInfo, model);
             return callInfo;
         }
     }
