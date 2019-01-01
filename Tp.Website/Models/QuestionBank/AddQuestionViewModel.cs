@@ -1,7 +1,6 @@
 ﻿using Tp.Common.Constants;
 using Tp.Common.Extensions.CheeseColourExtensions;
 using Tp.Models.DbEntities;
-using Tp.Website.Controllers;
 
 namespace Tp.Website.Models.QuestionBank
 {
@@ -67,7 +66,7 @@ namespace Tp.Website.Models.QuestionBank
         }
        public static AddQuestionViewModel Create(
            Category category,
-           QuestionBankController.AddQuestionPostModel addQuestionPostModel)
+           AddQuestionPostModel addQuestionPostModel)
        {
            return new AddQuestionViewModel(
                categoryId: category.Id,

@@ -56,6 +56,13 @@ namespace Tp.Website.Controllers
             return new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Add);
         }
 
+        [NonAction]
+        [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
+        public virtual IActionResult ListByCategory()
+        {
+            return new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.ListByCategory);
+        }
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public QuestionBankController Actions => MVC.QuestionBank;
         [GeneratedCode("R4Mvc", "1.0")]
@@ -73,6 +80,7 @@ namespace Tp.Website.Controllers
         {
             public readonly string Index = "Index";
             public readonly string Add = "Add";
+            public readonly string ListByCategory = "ListByCategory";
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
@@ -80,6 +88,7 @@ namespace Tp.Website.Controllers
         {
             public const string Index = "Index";
             public const string Add = "Add";
+            public const string ListByCategory = "ListByCategory";
         }
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
@@ -91,12 +100,14 @@ namespace Tp.Website.Controllers
             {
                 public readonly string Add = "Add";
                 public readonly string Index = "Index";
+                public readonly string ListByCategory = "ListByCategory";
                 public readonly string _AddQuestion = "_AddQuestion";
                 public readonly string _QuestionBankSummary = "_QuestionBankSummary";
             }
 
             public readonly string Add = "~/Views/QuestionBank/Add.cshtml";
             public readonly string Index = "~/Views/QuestionBank/Index.cshtml";
+            public readonly string ListByCategory = "~/Views/QuestionBank/ListByCategory.cshtml";
             public readonly string _AddQuestion = "~/Views/QuestionBank/_AddQuestion.cshtml";
             public readonly string _QuestionBankSummary = "~/Views/QuestionBank/_QuestionBankSummary.cshtml";
         }
@@ -136,13 +147,24 @@ namespace Tp.Website.Controllers
         }
 
         [NonAction]
-        partial void AddOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, Tp.Website.Controllers.QuestionBankController.AddQuestionPostModel model);
+        partial void AddOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, Tp.Website.Models.AddQuestionPostModel inModel);
         [NonAction]
-        public override Microsoft.AspNetCore.Mvc.IActionResult Add(Tp.Website.Controllers.QuestionBankController.AddQuestionPostModel model)
+        public override Microsoft.AspNetCore.Mvc.IActionResult Add(Tp.Website.Models.AddQuestionPostModel inModel)
         {
             var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.Add);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
-            AddOverride(callInfo, model);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "inModel", inModel);
+            AddOverride(callInfo, inModel);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ListByCategoryOverride(R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult callInfo, int categoryId);
+        [NonAction]
+        public override Microsoft.AspNetCore.Mvc.IActionResult ListByCategory(int categoryId)
+        {
+            var callInfo = new R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult(Area, Name, ActionNames.ListByCategory);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "categoryId", categoryId);
+            ListByCategoryOverride(callInfo, categoryId);
             return callInfo;
         }
     }

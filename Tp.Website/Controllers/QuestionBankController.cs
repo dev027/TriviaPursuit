@@ -1,5 +1,6 @@
-using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
+using Tp.Models.DbEntities;
+using Tp.Website.Models;
 using Tp.Website.Models.QuestionBank;
 
 namespace Tp.Website.Controllers
@@ -51,26 +52,15 @@ namespace Tp.Website.Controllers
             return PartialView(MVC.QuestionBank.Views._AddQuestion, outModel);
         }
 
-        public class AddQuestionPostModel
+        public virtual IActionResult ListByCategory(int categoryId)
         {
-            public int CategoryId { get; set; }
-
-            [Required(ErrorMessage = "Please enter a question")]
-            public string Question { get; set; }
-
-            [Required(ErrorMessage = "Please enter a correct answer")]
-            public string CorrectAnswer { get; set; }
-
-            [Required(ErrorMessage = "Please enter a 1st wrong answer")]
-            public string WrongAnswer1 { get; set; }
-
-            [Required(ErrorMessage = "Please enter a 2nd wrong answer")]
-            public string WrongAnswer2 { get; set; }
-
-            [Required(ErrorMessage = "Please enter a 3rd wrong answer")]
-            public string WrongAnswer3 { get; set; }
-
-            public int AllNone { get; set; }
+            var category = Service.Category.GetById(categoryId);
+            var questions = Service.Question.GetByCategoryId(
+                categoryId,
+                orderBy: Question.OrderBy.IdDescending);
+            var model = ListByCategoryViewModel.Create(category, questions);
+            return View(model);
         }
+
     }
 }

@@ -33,5 +33,16 @@ namespace Tp.Service
                 data.Question.Add(question);
             }
         }
+
+        public IList<Question> GetByCategoryId(
+            int categoryId,
+            Question.Include include = Question.Include.None,
+            Question.OrderBy orderBy = Question.OrderBy.None)
+        {
+            using(var data = new Data.Data())
+            {
+                return data.Question.GetByCategoryId(categoryId, include, orderBy);
+            }
+        }
     }
 }

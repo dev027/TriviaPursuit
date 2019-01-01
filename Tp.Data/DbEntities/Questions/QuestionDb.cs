@@ -84,6 +84,9 @@ namespace Tp.Data.DbEntities.Questions
                 case Question.OrderBy.Id:
                     return read.OrderBy(q => q.Id);
 
+                case Question.OrderBy.IdDescending:
+                    return read.OrderByDescending(q => q.Id);
+
                 case Question.OrderBy.CategoryName:
                     return read.OrderBy(q => q.Category.Name);
 
@@ -103,6 +106,21 @@ namespace Tp.Data.DbEntities.Questions
         public int GetCountByCategoryId(int categoryId)
         {
             return Context.Questions.Count(q => q.CategoryId == categoryId);
+        }
+
+        public IList<Question> GetByCategoryId(
+            int categoryId,
+            Question.Include include = Question.Include.None,
+            Question.OrderBy orderBy = Question.OrderBy.None,
+            bool isTracked = false)
+        {
+            return IsTracked(
+                    isTracked,
+                    OrderBy(
+                        ReadInclude(Context.Questions, include),
+                        orderBy))
+                .Where(q => q.CategoryId == categoryId)
+                .ToList();
         }
     }
 }

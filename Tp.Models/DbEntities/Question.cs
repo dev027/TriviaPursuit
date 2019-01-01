@@ -54,6 +54,7 @@ namespace Tp.Models.DbEntities
         {
             None,
             Id,
+            IdDescending,
             CategoryName
         }
     }
